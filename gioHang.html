@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/f20d460fd9.js" crossorigin="anonymous"></script>
+    <script src="js/sanPham2.js"></script>
+    <style>
+        *{
+         box-sizing: border-box;   
+         margin: 0;
+         padding: 0  ;
+        }
+        .sanpham img{
+            width: 100%;
+            
+        }
+        input{
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #giohangmua{
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 4px #ddd;
+            margin: 0 auto;
+            max-width: 1100px;
+            padding: 20px;
+
+        }
+        .itemgiohang{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .itemgiohang .hinhAnh img{
+            width: 60px;
+            height: 60px;
+        }
+        .itemgiohang .hinhAnh, .tongtien, .soluong, .hanhdong{
+            flex: 1;
+            margin-left: 20px;
+
+        }
+        .soluong{
+            width: 100px;
+        }
+        .tongtien{
+            font-size: 18px;
+        }
+        .itemgiohang .gia{
+            flex: 2;
+        }
+        .itemgiohang .ten{
+            flex: 3;
+        }
+        .itemgiohang .gia .giagoc{
+            font-size: 12px;
+            text-decoration: line-through;
+            color: red;
+        }
+        .itemgiohang .hanhdong i:hover{
+            color: red;
+        }
+       
+        .khung-thanh-tien{
+            width: 1200px;
+            display: flex;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            
+        }
+        .khung-thanh-tien p{
+            margin-right: 5px;
+            width: fit-content;
+            padding-left: 25px ;
+            
+        }
+        .thanh-tien{
+            color: red;
+            font-size: 18px;
+        }
+        .from{
+            width: 1100px;
+            height: 630px;
+            border: 1px solid  #ddd;
+            box-shadow: 2px 2px 4px  #ddd;
+            padding: 30px;
+            border-radius: 5px;
+            margin: auto;
+        }
+        .from label,input, button{
+            width: 100%;
+            display: block;
+            margin-top: 10px;
+        }
+        .from input,button{
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .from button{
+            background-color: #f7452e;
+            color: aliceblue;
+            font-size: 18px;
+            
+        }
+        .from .error{
+            font-size: 12px;
+            font-style: italic;
+            color: red;
+            line-height: 12px;
+            height: 12px;
+        }
+        #giohangmua .tieude{
+            font-size: 24px;
+            color: #f7452e;
+            margin-bottom: 20px;
+        }
+        .from .tieude{
+            font-size: 24px;
+            color: #f7452e;
+            margin-bottom: 20px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="thanhtren">		
+            <div class ="khoithanhlienlac">
+                <div class="thanhlienlac">
+                    <div class="lienlac">
+                        <div class="tintuc">
+                            <a href="Dangnhap_dangki.html">
+                                Đăng nhập
+                            </a>						
+                        </div>
+                        <div class="lienhe">
+                            <a href="Dangnhap_dangki.html">
+                                Đăng kí
+                            </a>
+                        </div>
+                        <div class="dangki">
+                            <a href="lienhe.html">
+                                Liên hệ
+                            </a>
+                        </div>
+                        <div class="dangnhap">
+                            <a href="tintuc.html">
+                                Tin tức
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="khoilogo-timkiem">
+                <div class="logo-timkiem">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/logo.png">
+                        </a>
+                    </div>
+                    <div class="timkiem">
+                        <div class="khoitimkiem">
+                            <input type="text" placeholder="Tìm kiếm">
+                            <input type="button" value="Tìm">
+                        </div>
+                        
+                    </div>
+                    <div class="giohang">
+                        <div class="chugiohang">
+                            <a href="gioHang.html">
+                                 Giỏ hàng
+                            </a>
+                        </div>
+                        <div class="imggiohang">
+                            <a href="gioHang.html">
+                                <img src="images/giohang.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mangxahoi-hotline">
+                        <div class="mangxahoi">
+                            <div class="fb">
+                                <a href="https://www.facebook.com/adidasVN/" target="_blank">
+                                    <img src="images/fb.png">
+                                </a>
+                            </div>
+                            <div class="tw">
+                                <a href="https://twitter.com/adidas" target="_blank">
+                                    <img src="images/tw.png">
+                                </a>
+                            </div>
+                            <div class="ins">
+                                <a href="https://www.instagram.com/adidas/" target="_blank">
+                                    <img src="images/ins.png">
+                                </a>
+                            </div>
+                            <div class="ytb">
+                                <a href="https://www.youtube.com/user/adidas" target="_blank">
+                                    <img src="images/ytb.png">
+                                </a>
+                            </div>
+                            <div class="hotline">
+                                <img src="images/dienthoai2.png">			
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="khoimenu">
+			<div class="menu">
+				<div class="giay">
+					<li class="active">
+						<a href="index.html">
+						Trang chủ
+						</a>
+					</li>
+				</div>
+				<div class="giay">
+					<a href="#">
+						STAN SMITH
+					</a>
+				</div>
+				<div class="giay">
+					<a href="#">
+						ALPHABOOST
+					</a>
+				</div>
+				<div class="giay">
+					<a href="#">
+						ULTRA BOOST
+					</a>
+				</div>
+				<div class="giay">
+					<a href="#">
+						NMD
+					</a>
+				</div>
+				<div class="giay">
+					<a href="#">
+						SUPERSTAR
+					</a>
+				</div>
+				<div class="giay">
+					<a href="#">
+						ADICROSS
+					</a>
+				</div>
+			</div>
+        </div>
+
+        	
+    </header>
+    <div class="uudai">
+        <div class="khunguudai">
+            <div class="freechuyen">
+                <div class="khungoto">
+                    <img src="images/oto2.png">
+                </div>
+                <div class="khungchu">
+                    <a href="#">
+                        MIỄN PHÍ VẬN CHUYỂN CHO MỌI ĐƠN HÀNG
+                    </a>	
+                </div>
+                
+            </div>
+            <div class="trahang">
+                <div class="khunggiohang">
+                    <img src="images/giohang2.png">
+                </div>
+                <a href="#">
+                    TRẢ HÀNG DỄ DÀNG
+                </a>	
+            </div>
+        </div>
+    </div>
+
+
+        
+    </nav> 
+    <div id="giohangmua">
+        <h1 class="tieude">Danh Sách Sản Phẩm</h1>
+        <div class="itemgiohang">
+            <div class="hinhAnh">
+            </div>
+            <p class="ten">Tên Sản Phẩm</p>
+            <div class="gia">
+               <p>Đơn Giá</p>
+            </div>
+            <p class="soluong">Số Lượng</p>
+            <p class="tongtien">Tổng tiền</p>
+            <div class="hanhdong">
+                <p>Xóa</p>
+            </div>
+        </div>
+    </div>
+    <div class ="khung-thanh-tien">
+         <div class="khungtien">
+            <p>Tổng tiền : </p>
+            <p class="thanh-tien" id = "thanhtien"> </p>
+         </div>
+      
+    </div>
+    <div class="from">
+        <h1 class="tieude">Thanh toán đơn hàng</h1>
+        <label for="hoten"> Họ Tên</label>
+        <input type="text" id="hoten">
+        <label id="thongbaoloihoten" for="hoten" class="error"></label>
+
+        <label for="sodienthoai">Số Điện Thoại</label>
+        <input type="number" id="sodienthoai">
+        <label id="thongbaoloisdt" for="sodienthoai" class="error"></label>
+
+        <label for="diachi">Địa Chỉ</label>
+        <input type="text" id="diachi">
+        <label id="thongbaoloidiachi" for="diachi" class="error"></label>
+
+        <label for="gmail">Gmail</label>
+        <input type="text" id="gmail">
+        <label id="thongbaoloigmail" for="gmail" class="error"></label>
+
+        <label for="ghichu">Ghi Chú</label>
+        <input type="text" id="ghichu">
+        <label id="thongbaoloighichu" for="ghichu" class="error"></label>
+
+        <button onclick="muaHang()" class="btn">Mua hàng</button>
+    </div>
+    <script>
+        function muaHang(){
+            if (kiemTraFormMuaHang()==true) {
+                console.log("Thực hiện mua hàng");
+            }
+        }
+        function kiemTraFormMuaHang(){
+            var hople = true;
+
+            var nodehoten= document.getElementById("hoten")
+            var nodesodienthoai = document.getElementById("sodienthoai")
+            var hoten = nodehoten.value;
+            var sodienthoai = nodesodienthoai.value;
+            var nodediachi = document.getElementById("diachi")
+            var diachi = nodediachi.value;
+            var nodegmail = document.getElementById("gmail")
+            var gmail = nodegmail.value;
+            var nodeghichu = document.getElementById("ghichu")
+            var ghichu = nodeghichu.value;
+            console.log("Họ Tên"+sodienthoai);
+            console.log("số điện thoại"+sodienthoai);
+
+            var  nodethongbaoloihoten = document.getElementById("thongbaoloihoten")
+            var nodethongbaoloisdt = document.getElementById("thongbaoloisdt")
+            var nodethongbaoloidiachi = document.getElementById("thongbaoloidiachi")
+            var nodethongbaoloigmail = document.getElementById("thongbaoloigmail")
+            var nodethongbaoloighichu = document.getElementById("thongbaoloighichu")
+            nodethongbaoloisdt.innerHTML = "";
+            nodethongbaoloihoten.innerHTML = "";
+            nodethongbaoloidiachi.innerHTML = "";
+            nodethongbaoloigmail.innerHTML = "";
+            nodethongbaoloighichu.innerHTML = "";
+
+
+            if (hoten==null||hoten.length <= 0) {
+                nodethongbaoloihoten.innerHTML = "Họ tên không được để trống"
+                hople = false;
+            }
+            if (sodienthoai == null||sodienthoai.length < 10 || sodienthoai.length > 10) {
+                nodethongbaoloisdt.innerHTML = "Số điện thoại không được để trống và không quá 10 số"
+                hople = false;
+            }
+            if (diachi==null||diachi.length <= 0) {
+               
+               nodethongbaoloidiachi.innerHTML = "Địa chỉ không được để trống"
+               hople = false;
+           }
+            if (gmail==null||gmail.length <= 0) {
+               nodethongbaoloigmail.innerHTML = "Gmail không được để trống"
+               hople = false;
+           }
+            if (ghichu==null||ghichu.length <= 0) { 
+               nodethongbaoloighichu.innerHTML = "Ghi chú không được để trống"
+               hople = false;
+           }
+               
+            return hople;
+        }
+    </script>
+     <script src="js/hotro.js"></script>
+     <script src="js/giohang.js"></script>
+
+     <footer>
+        <div class="footer">
+            <div class="khungphanduoi">
+                <div class="logoduoi">
+                    <div class="imglogo">
+                        <img src="images/imglogo.png">
+                    </div>
+                    <div class="diachi">
+                        <img src="images/duongke.png">
+                        <h1>						
+                            Công ty TNHH adidas Việt Nam<br><br>
+                            Tầng 8, Deutsches Haus, 33 Lê Duẩn
+                            Phường Bến Nghé, Quận
+                             1, Thành phố Hồ Chí Minh, Việt Nam 
+                        </h1>
+                    </div>
+                </div>
+                <div class="lienhe-thanhtoan">
+                    <h1>Liên hệ & Thanh toán</h1>
+                    <img src="images/duongke.png">
+                    <h2>
+                        Hotline: (+84) 2844581676<br><br>
+                        Website: adidas.com
+                    </h2>
+                    
+                </div>
+                <div class="hotro">
+                    <h1>Hỗ trợ khách hàng</h1>
+                    <img src="images/duongke.png">
+                    <h2>
+                        <a href="#">Chính sách đổi hàng<br><br></a>
+                        <a href="#">Hướng dẫn mua hàng<br><br></a>
+                        <a href="#">Chương trình khuyễn mãi</a>
+                    </h2>
+                </div>
+                <div class="fanpage">
+                    <h1>Fanpage</h1>
+                    <img src="images/duongke.png">
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0"></script>
+                    <div class="fb-page" data-href="https://www.facebook.com/adidasVN/" data-tabs="fanpage" data-width="242" data-height="155" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/adidasVN/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/adidasVN/">adidas</a></blockquote></div>
+                </div>
+            </div>
+        </div>
+            
+    </footer>
+</body>
+</html>
